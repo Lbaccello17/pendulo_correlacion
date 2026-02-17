@@ -6,6 +6,26 @@ body {
 }
 
 /* ══════════════════════════════════════════════════════════ */
+/* DASH CONTAINER OVERRIDES (prevent white flash / sections) */
+/* ══════════════════════════════════════════════════════════ */
+
+#react-entry-point,
+._dash-loading,
+._dash-app-content,
+.dash-debug-menu,
+.dash-error-card__content,
+.dash-callback-dag--container {
+    background-color: #0B0E1A !important;
+    color: #E8ECF4 !important;
+}
+
+/* Catch-all for any Dash internal wrapper with white bg */
+div[id^="_dash"],
+div[class^="_dash"] {
+    background-color: transparent !important;
+}
+
+/* ══════════════════════════════════════════════════════════ */
 /* DROPDOWN / REACT-SELECT OVERRIDES (Dark Mode)              */
 /* ══════════════════════════════════════════════════════════ */
 
@@ -27,7 +47,7 @@ body {
 /* The input field (where you type) - Critical for "white box" issues */
 .Select-input > input {
     color: #E8ECF4 !important;
-    background: transparent !important; /* Fixes white background in inputs */
+    background: transparent !important;
 }
 
 /* Placeholder text ("Select...") */
@@ -49,13 +69,43 @@ body {
     padding: 8px 12px !important;
 }
 .Select-option.is-focused {
-    background-color: #171B30 !important; /* Slightly lighter on hover */
+    background-color: #171B30 !important;
     color: #2A9D8F !important;
 }
 .Select-option.is-selected {
     background-color: #171B30 !important;
     color: #2A9D8F !important;
     font-weight: bold !important;
+}
+
+/* ── Dash Dropdown (newer class names) ── */
+.dash-dropdown .Select,
+.dash-dropdown .Select-control,
+.dash-dropdown .Select-menu-outer,
+.dash-dropdown .Select-noresults {
+    background-color: #111427 !important;
+    color: #E8ECF4 !important;
+}
+
+.Select-noresults {
+    background-color: #111427 !important;
+    color: #6B7394 !important;
+}
+
+/* The arrow indicator */
+.Select-arrow-zone {
+    background-color: transparent !important;
+}
+.Select-arrow {
+    border-color: #6B7394 transparent transparent !important;
+}
+
+/* Clear indicator */
+.Select-clear-zone {
+    color: #6B7394 !important;
+}
+.Select-clear-zone:hover {
+    color: #E63946 !important;
 }
 
 /* ── MULTI-SELECT SPECIFIC ── */
@@ -127,7 +177,7 @@ body {
     font-size: 11px !important;
 }
 .rc-slider-mark-text-active {
-    color: #E8ECF4 !important; /* Highlight active value */
+    color: #E8ECF4 !important;
 }
 
 /* Tooltip (the number that pops up) */
@@ -140,4 +190,62 @@ body {
 }
 .rc-slider-tooltip-arrow {
     border-top-color: #252A45 !important;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/* PLOTLY / GRAPH OVERRIDES                                   */
+/* ══════════════════════════════════════════════════════════ */
+
+/* Plotly chart containers */
+.js-plotly-plot,
+.plotly,
+.plot-container {
+    background-color: transparent !important;
+}
+
+.js-plotly-plot .plotly .modebar {
+    background-color: transparent !important;
+}
+
+/* Plotly hover label */
+.js-plotly-plot .plotly .hoverlayer .hovertext rect {
+    fill: #171B30 !important;
+    stroke: #252A45 !important;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/* TABLE / GENERAL ELEMENT OVERRIDES                          */
+/* ══════════════════════════════════════════════════════════ */
+
+table {
+    background-color: transparent !important;
+}
+
+th, td {
+    border-color: #252A45 !important;
+}
+
+/* Scrollbar styling for dark theme */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0B0E1A;
+}
+::-webkit-scrollbar-thumb {
+    background: #252A45;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #6B7394;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/* LOADING STATE                                              */
+/* ══════════════════════════════════════════════════════════ */
+
+.dash-spinner-container,
+._dash-loading-callback {
+    background-color: transparent !important;
 }

@@ -9,6 +9,7 @@ Ejecutar:
 Abrir en navegador: http://127.0.0.1:8050
 """
 
+import os
 import locale
 import dash
 from dash import html, dcc, Input, Output, State, callback
@@ -75,6 +76,7 @@ app = dash.Dash(
     update_title=None,
     suppress_callback_exceptions=True,
 )
+server = app.server
 
 # ══════════════════════════════════════════════════════════
 # LAYOUT
@@ -90,13 +92,16 @@ app.index_string = '''<!DOCTYPE html>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
+        html, body {
             background: ''' + THEME["bg_deep"] + ''';
             color: ''' + THEME["text_primary"] + ''';
             font-family: 'Sora', sans-serif;
             min-height: 100vh;
         }
-        /* Dash component overrides */
+        #react-entry-point, ._dash-loading {
+            background: ''' + THEME["bg_deep"] + ''';
+            min-height: 100vh;
+        }
     </style>
 </head>
 <body>
@@ -603,8 +608,10 @@ def build_diagnosis(correlations):
 # ══════════════════════════════════════════════════════════
 
 if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8050))
+    debug = os.environ.get("RAILWAY_ENVIRONMENT") is None
     print("\n🌍⚖️  El Péndulo de Correlación Global")
     print("=" * 50)
     print("📡 Conectando a Yahoo Finance...")
-    print("🌐 Abriendo en: http://127.0.0.1:8050\n")
-    app.run(debug=True, host="127.0.0.1", port=8050)
+    print(f"🌐 Abriendo en: http://0.0.0.0:{port}\n")
+    app.run(debug=debug, host="0.0.0.0", port=port)
