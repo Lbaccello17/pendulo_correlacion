@@ -1,0 +1,143 @@
+/* Global Body Reset */
+body {
+    background-color: #0B0E1A !important;
+    color: #E8ECF4 !important;
+    font-family: 'Sora', sans-serif !important;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/* DROPDOWN / REACT-SELECT OVERRIDES (Dark Mode)              */
+/* ══════════════════════════════════════════════════════════ */
+
+/* The main container of the dropdown */
+.Select-control {
+    background-color: #111427 !important;
+    border: 1px solid #252A45 !important;
+    color: #E8ECF4 !important;
+}
+
+/* The text of the selected value (Single Select) */
+.Select-value {
+    color: #E8ECF4 !important;
+}
+.Select-value-label {
+    color: #E8ECF4 !important;
+}
+
+/* The input field (where you type) - Critical for "white box" issues */
+.Select-input > input {
+    color: #E8ECF4 !important;
+    background: transparent !important; /* Fixes white background in inputs */
+}
+
+/* Placeholder text ("Select...") */
+.Select-placeholder {
+    color: #6B7394 !important;
+}
+
+/* The Dropdown Menu (the list of options) */
+.Select-menu-outer {
+    background-color: #111427 !important;
+    border: 1px solid #252A45 !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
+}
+
+/* Individual Options */
+.Select-option {
+    background-color: #111427 !important;
+    color: #B0B5C9 !important;
+    padding: 8px 12px !important;
+}
+.Select-option.is-focused {
+    background-color: #171B30 !important; /* Slightly lighter on hover */
+    color: #2A9D8F !important;
+}
+.Select-option.is-selected {
+    background-color: #171B30 !important;
+    color: #2A9D8F !important;
+    font-weight: bold !important;
+}
+
+/* ── MULTI-SELECT SPECIFIC ── */
+
+/* The wrapper for the selected tags */
+.Select--multi .Select-value {
+    background-color: #171B30 !important;
+    border: 1px solid #252A45 !important;
+    border-radius: 4px !important;
+    color: #E8ECF4 !important;
+    margin-right: 4px !important;
+    margin-top: 4px !important;
+}
+
+/* The label inside the tag */
+.Select--multi .Select-value-label {
+    color: #E8ECF4 !important;
+    padding: 2px 6px !important;
+}
+
+/* The "x" icon to remove a tag */
+.Select--multi .Select-value-icon {
+    border-right: 1px solid #252A45 !important;
+    padding: 2px 6px !important;
+    cursor: pointer !important;
+}
+.Select--multi .Select-value-icon:hover {
+    background-color: #E63946 !important;
+    color: white !important;
+}
+
+/* ══════════════════════════════════════════════════════════ */
+/* SLIDER / RC-SLIDER OVERRIDES                               */
+/* ══════════════════════════════════════════════════════════ */
+
+/* The main rail (background line) */
+.rc-slider-rail {
+    background-color: #252A45 !important;
+}
+
+/* The track (filled part of the line) */
+.rc-slider-track {
+    background-color: #2A9D8F !important;
+}
+
+/* The handle (the circle you drag) */
+.rc-slider-handle {
+    border: 2px solid #2A9D8F !important;
+    background-color: #0B0E1A !important;
+}
+.rc-slider-handle:hover, .rc-slider-handle:active {
+    border-color: #4895EF !important;
+    box-shadow: 0 0 5px #4895EF !important;
+}
+
+/* The dots on the slider */
+.rc-slider-dot {
+    background-color: #111427 !important;
+    border: 2px solid #252A45 !important;
+}
+.rc-slider-dot-active {
+    border-color: #2A9D8F !important;
+}
+
+/* The text marks below the slider */
+.rc-slider-mark-text {
+    color: #6B7394 !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    font-size: 11px !important;
+}
+.rc-slider-mark-text-active {
+    color: #E8ECF4 !important; /* Highlight active value */
+}
+
+/* Tooltip (the number that pops up) */
+.rc-slider-tooltip-inner {
+    background-color: #171B30 !important;
+    color: #E8ECF4 !important;
+    border: 1px solid #252A45 !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5) !important;
+    font-family: 'JetBrains Mono', monospace !important;
+}
+.rc-slider-tooltip-arrow {
+    border-top-color: #252A45 !important;
+}

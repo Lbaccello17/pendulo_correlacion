@@ -105,12 +105,12 @@ def generate_diagnosis(correlations: pd.DataFrame) -> dict:
         pct = ((avg_now - avg_prev) / abs(avg_prev)) * 100 if avg_prev != 0 else 0
         return avg_now, avg_prev, pct
 
-    asia_now, asia_prev, asia_pct = block_trend(BLOCKS.get("Asia 🌏", []))
-    latam_now, latam_prev, latam_pct = block_trend(BLOCKS.get("Latinoamérica 🌎", []))
+    asia_now, asia_prev, asia_pct = block_trend(BLOCKS.get("Asia-Pacífico 🌏", []))
+    americas_now, americas_prev, americas_pct = block_trend(BLOCKS.get("Américas 🌎", []))
 
     return {
         "date": correlations.index[-1].strftime("%d de %B de %Y") if hasattr(correlations.index[-1], "strftime") else str(correlations.index[-1]),
         "groups": groups,
         "asia_trend": {"avg_now": asia_now, "pct_change": asia_pct},
-        "latam_trend": {"avg_now": latam_now, "pct_change": latam_pct},
+        "americas_trend": {"avg_now": americas_now, "pct_change": americas_pct},
     }
